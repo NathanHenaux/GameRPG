@@ -16,7 +16,9 @@
 // Esquive = dodging
 // Blocage = blocking
 
-pub struct baseStats {
+#[allow(unused_variables)]
+#[allow(dead_code)]
+pub struct BaseStats {
     hp: u16,
     hp_max: u16,
     strength: u16,
@@ -34,11 +36,13 @@ pub struct baseStats {
     power: u16,     // Hunter
     power_max: u16,
     dexterity: u16,
-    dodging: u8,
+    // dodging: u8,
 }
 
-pub fn warriorBaseStats() {
-    let warriorBaseStats = baseStats {
+#[allow(unused_variables)]
+#[allow(dead_code)]
+pub fn warrior_base_stats() {
+    let warrior_base_stats = BaseStats {
         hp: 100,
         hp_max: 100,
         strength: 10,
@@ -46,11 +50,20 @@ pub fn warriorBaseStats() {
         rage: 0,
         rage_max: 100,
         blocking: 0,
+
+        mana: 0,
+        mana_max: 0,
+        intelligence: 0,
+        dodging: 0,
+        power: 0,
+        power_max: 0,
+        dexterity: 0,
     };
 }
 
-pub fn mageBaseStats() {
-    let mageBaseStats = baseStats {
+#[allow(unused_variables)]
+pub fn mage_base_stats() {
+    let mage_base_stats = BaseStats {
         hp: 100,
         hp_max: 100,
         strength: 10,
@@ -59,11 +72,19 @@ pub fn mageBaseStats() {
         mana_max: 100,
         intelligence: 10,
         dodging: 0,
+
+        rage: 0,
+        rage_max: 0,
+        blocking: 0,
+        power: 0,
+        power_max: 0,
+        dexterity: 0,
     };
 }
 
-pub fn hunterBaseStats() {
-    let hunterBaseStats = baseStats {
+#[allow(unused_variables)]
+pub fn hunter_base_stats() {
+    let hunter_base_stats = BaseStats {
         hp: 100,
         hp_max: 100,
         strength: 10,
@@ -72,5 +93,12 @@ pub fn hunterBaseStats() {
         power_max: 100,
         dodging: 0,
         dexterity: 10,
+
+        rage: 0,
+        rage_max: 0,
+        blocking: 0,
+        mana: 0,
+        mana_max: 0,
+        intelligence: 0,
     };
 }
