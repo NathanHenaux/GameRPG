@@ -20,10 +20,11 @@ pub fn class_choose() {
         let choose_class = choose_class.trim();
 
         // Lookup choose class
+        let choose_class = choose_class.trim().to_lowercase();
 
-        let class_warrior = choose_class == "Warrior" || choose_class == "warrior" || choose_class == "1";
-        let class_mage = choose_class == "Mage" || choose_class == "mage" || choose_class == "2";
-        let class_hunter = choose_class == "Hunter" || choose_class == "hunter" || choose_class == "3";
+        let class_warrior = choose_class == "warrior" || choose_class == "1";
+        let class_mage =  choose_class == "mage" || choose_class == "2";
+        let class_hunter = choose_class == "hunter" || choose_class == "3";
 
         // Create Warrior
 
