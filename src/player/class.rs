@@ -1,8 +1,8 @@
 use std::io;
 
-use crate::Player::PlayerStats::warrior_base_stats;
-use crate::Player::PlayerStats::mage_base_stats;
-use crate::Player::PlayerStats::hunter_base_stats;
+use crate::player::stats::warrior_base_stats;
+use crate::player::stats::mage_base_stats;
+use crate::player::stats::hunter_base_stats;
 
 #[allow(unused_variables)]
 #[allow(unused_mut)]
