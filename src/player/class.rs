@@ -1,4 +1,5 @@
 use std::io;
+use std::io::BufRead;
 
 use crate::player::stats::hunter_base_stats;
 use crate::player::stats::mage_base_stats;
@@ -15,7 +16,10 @@ pub enum Class {
 
 #[allow(unused_variables)]
 #[allow(unused_mut)]
-pub fn class_choose() -> (Class, BaseStats) {
+pub fn class_choose<R>(reader: &mut R) -> (Class, BaseStats)
+where
+  R: BufRead,
+{
   loop {
     // Player choose class
     println!("Choose your class: ");
@@ -24,7 +28,7 @@ pub fn class_choose() -> (Class, BaseStats) {
     println!("3. Hunter");
 
     let mut choose_class = String::new();
-    io::stdin().read_line(&mut choose_class).expect("Failed to read line");
+    reader.read_line(&mut choose_class).expect("Failed to read line");
     let choose_class = choose_class.trim();
 
     // Lookup choose class
@@ -44,5 +48,32 @@ pub fn class_choose() -> (Class, BaseStats) {
     } else {
       println!("Invalid class");
     }
+  }
+}
+
+// some tests
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn choose_warrior() {
+    let mut reader = io::Cursor::new("warrior");
+    let (class, _stats) = class_choose(&mut reader);
+    assert!(matches!(class, Class::Warrior));
+  }
+
+  #[test]
+  fn choose_mage() {
+    let mut reader = io::Cursor::new("plop\n2");
+    let (class, _stats) = class_choose(&mut reader);
+    assert!(matches!(class, Class::Mage));
+  }
+
+  #[test]
+  fn choose_hunter() {
+    let mut reader = io::Cursor::new("plop\n \n \n \nhunter");
+    let (class, _stats) = class_choose(&mut reader);
+    assert!(matches!(class, Class::Hunter));
   }
 }
