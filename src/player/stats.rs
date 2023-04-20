@@ -23,6 +23,7 @@ pub struct BaseStats {
     hp_max: u16,
     strength: u16,
     armor: u16,
+    level: u8,
 
     mana: u16,      // Mage
     mana_max: u16,
@@ -33,14 +34,12 @@ pub struct BaseStats {
     rage_max: u8,
     blocking: u8,
 
-    power: u16,     // Hunter
-    power_max: u16,
+    power: u16,     //
     dexterity: u16,
     // dodging: u8,
 }
 
 #[allow(unused_variables)]
-#[allow(dead_code)]
 pub fn warrior_base_stats() {
     let warrior_base_stats = BaseStats {
         hp: 100,
@@ -50,13 +49,13 @@ pub fn warrior_base_stats() {
         rage: 0,
         rage_max: 100,
         blocking: 0,
+        level: 1,
 
         mana: 0,
         mana_max: 0,
         intelligence: 0,
         dodging: 0,
         power: 0,
-        power_max: 0,
         dexterity: 0,
     };
 }
@@ -72,12 +71,12 @@ pub fn mage_base_stats() {
         mana_max: 100,
         intelligence: 10,
         dodging: 0,
+        level: 1,
 
         rage: 0,
         rage_max: 0,
         blocking: 0,
         power: 0,
-        power_max: 0,
         dexterity: 0,
     };
 }
@@ -90,9 +89,9 @@ pub fn hunter_base_stats() {
         strength: 10,
         armor: 10,
         power: 100,
-        power_max: 100,
         dodging: 0,
         dexterity: 10,
+        level: 1,
 
         rage: 0,
         rage_max: 0,

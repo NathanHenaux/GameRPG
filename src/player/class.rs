@@ -29,7 +29,7 @@ pub fn class_choose() {
         // Create Warrior
 
         if class_warrior {
-            let class = "Warrior";
+            let mut class_name = "Warrior";
             let mut stats = warrior_base_stats();
             break;
         }
