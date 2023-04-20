@@ -1,4 +1,3 @@
-use std::io;
 use std::io::BufRead;
 
 use crate::player::stats::hunter_base_stats;
@@ -7,7 +6,7 @@ use crate::player::stats::warrior_base_stats;
 
 use super::stats::BaseStats;
 
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 pub enum Class {
   Warrior,
   Mage,
@@ -55,6 +54,7 @@ where
 #[cfg(test)]
 mod tests {
   use super::*;
+  use std::io;
 
   #[test]
   fn choose_warrior() {
